@@ -1,11 +1,11 @@
 class NoteItem extends HTMLElement {
-    constructor() {
-      super();
-      this.attachShadow({ mode: "open" });
-    }
-  
-    set note(note) {
-      this.shadowRoot.innerHTML = `
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+  }
+
+  set note(note) {
+    this.shadowRoot.innerHTML = `
         <style>
             .note {
                 background: white;
@@ -24,7 +24,17 @@ class NoteItem extends HTMLElement {
                 padding: 5px;
                 cursor: pointer;
                 border-radius: 3px;
+                transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
             }
+            .delete-btn:hover {
+                background-color: #ff3737;
+                transform: scale(1.1);
+            }
+            .delete-btn:active {
+                background-color: #ff0000;
+                transform: scale(0.9);
+            }
+                
         </style>
         <div class="note">
             <button class="delete-btn">Hapus</button>
@@ -33,14 +43,13 @@ class NoteItem extends HTMLElement {
             <small>${new Date(note.createdAt).toLocaleDateString()}</small>
         </div>
       `;
-  
-      this.shadowRoot
-        .querySelector(".delete-btn")
-        .addEventListener("click", () => {
-          this.remove();
-        });
-    }
+
+    this.shadowRoot
+      .querySelector(".delete-btn")
+      .addEventListener("click", () => {
+        this.remove();
+      });
   }
-  
-  customElements.define("note-item", NoteItem);
-  
+}
+
+customElements.define("note-item", NoteItem);
