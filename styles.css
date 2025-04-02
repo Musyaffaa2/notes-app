@@ -1,50 +1,87 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    text-align: center;
     background: #f4f4f4;
 }
 
-header {
-    background: #3498db;
-    color: white;
-    padding: 10px;
+main {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.notes-container {
+#notes-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
     padding: 20px;
 }
 
-.note-item {
+/* Style untuk note card */
+.note {
     background: white;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
 }
 
+.note:hover {
+    transform: translateY(-5px);
+}
+
+.delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+.delete-btn:hover {
+    background: #cc0000;
+}
+
+/* Style untuk form */
 form {
-    margin: 20px auto;
-    max-width: 400px;
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
 
 input, textarea {
-    margin: 5px 0;
+    width: 100%;
     padding: 10px;
+    font-size: 16px;
     border: 1px solid #ddd;
     border-radius: 5px;
+    outline: none;
+}
+
+textarea {
+    height: 80px;
 }
 
 button {
-    background: #3498db;
+    background: #007bff;
     color: white;
     border: none;
     padding: 10px;
+    font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #0056b3;
 }

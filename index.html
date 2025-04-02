@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notes App</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="components/header.js" defer></script>
+    <script src="components/app-bar.js" defer></script>
     <script src="components/note-form.js" defer></script>
     <script src="components/note-item.js" defer></script>
+    <script src="components/custom-alert.js" defer></script>
+    <script src="components/custom-button.js" defer></script>
     <script src="script.js" defer></script>
 </head>
 <body>
-    <app-header></app-header>
+    <app-bar title="Notes App"></app-bar>
     <main>
-        <note-form></note-form> 
-        <section class="notes-container">
-            <!-- Catatan akan ditampilkan di sini -->
-        </section>
+        <note-form></note-form>
+        <section id="notes-container"></section>
     </main>
 </body>
 </html>
