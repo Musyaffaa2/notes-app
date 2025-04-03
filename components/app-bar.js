@@ -8,7 +8,7 @@ class AppBar extends HTMLElement {
           display: flex;
           justify-content: center;
           align-items: center;
-          background: #007bff;
+          background: #48A6A7;
           color: white;
           padding: 15px 20px;
           font-size: 20px;
@@ -16,7 +16,7 @@ class AppBar extends HTMLElement {
           box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
         }
         .title {
-          text-align: center; /* Tambahkan properti ini */
+          text-align: center; 
         }
         .menu {
           cursor: pointer;

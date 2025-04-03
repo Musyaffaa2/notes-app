@@ -13,8 +13,14 @@ class NoteItem extends HTMLElement {
                 border-radius: 5px;
                 box-shadow: 0px 0px 5px rgb(0, 0, 0);
                 position: relative;
+                display: grid; 
+                grid-template-columns: 1fr; 
+                grid-template-rows: 10px 1fr 10px; 
+                height: 200px; 
             }
             .delete-btn {
+                grid-column: 1; 
+                grid-row: 1; 
                 position: absolute;
                 top: 10px;
                 right: 8px;
@@ -29,27 +35,34 @@ class NoteItem extends HTMLElement {
             .delete-btn:hover {
                 background-color: #ff3737;
                 transform: scale(1.1);
-                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Tambahkan outline luar pada hover */
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
             }
             .delete-btn:active {
                 background-color: #ff0000;
                 transform: scale(0.9);
-                box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); /* Tambahkan outline luar pada active */
+                box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); 
+            }
+            .note-content {
+                grid-column: 1; 
+                grid-row: 2; 
+                padding-top: 10px; 
             }
                 
         </style>
         <div class="note">
             <button class="delete-btn">Delete</button>
-            <h3>${note.title}</h3>
-            <p>${note.body}</p>
-            <small>${new Date(note.createdAt).toLocaleDateString()}</small>
+            <div class="note-content">
+                <h3>${note.title}</h3>
+                <p>${note.body}</p>
+                <small>${new Date(note.createdAt).toLocaleDateString()}</small>
+            </div>
         </div>
       `;
 
     this.shadowRoot
       .querySelector(".delete-btn")
       .addEventListener("click", () => {
-        this.remove();
+        deleteNote(note.id);
       });
   }
 }

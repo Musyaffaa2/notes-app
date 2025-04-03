@@ -106,7 +106,6 @@ const notesData = [
   },
 ];
 
-console.log(notesData);
 
 function renderNotes() {
   const container = document.getElementById("notes-container");
@@ -126,17 +125,38 @@ function renderNotes() {
 }
 
 function addNote(note) {
-  notesData.push(note);
-  localStorage.setItem("notesData", JSON.stringify(notesData)); // Simpan ke localStorage
-  renderNotes();
+  try {
+    notesData.push(note);
+    localStorage.setItem("notesData", JSON.stringify(notesData)); // Simpan ke localStorage
+    renderNotes();
+  } catch (error) {
+    console.error("Gagal menambahkan note:", error);
+  }
+}
+
+function deleteNote(id) {
+  try {
+    const index = notesData.findIndex((note) => note.id === id);
+    if (index !== -1) {
+      notesData.splice(index, 1);
+      localStorage.setItem("notesData", JSON.stringify(notesData)); // Update localStorage
+      renderNotes();
+    }
+  } catch (error) {
+    console.error("Gagal menghapus note:", error);
+  }
 }
 
 // Saat load halaman, ambil dari localStorage
 document.addEventListener("DOMContentLoaded", () => {
-  const storedNotes = localStorage.getItem("notesData");
-  if (storedNotes) {
-    notesData.length = 0;
-    notesData.push(...JSON.parse(storedNotes));
+  try {
+    const storedNotes = localStorage.getItem("notesData");
+    if (storedNotes) {
+      notesData.length = 0;
+      notesData.push(...JSON.parse(storedNotes));
+    }
+    renderNotes();
+  } catch (error) {
+    console.error("Gagal mengambil data dari localStorage:", error);
   }
-  renderNotes();
 });
