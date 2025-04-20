@@ -1,7 +1,7 @@
 class CustomButton extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: "open" });
+    this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = `
       <style>
           button[type="submit"] {
@@ -15,9 +15,9 @@ class CustomButton extends HTMLElement {
           button[type="submit"]:hover {
               background-color: #006A71; 
       </style>
-      <button>${this.getAttribute("text")}</button>
+      <button>${this.getAttribute('text')}</button>
     `;
   }
 }
 
-customElements.define("custom-button", CustomButton);
+customElements.define('custom-button', CustomButton);

@@ -1,7 +1,7 @@
 class AppBar extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: "open" });
+    this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = `
       <style>
         .app-bar {
@@ -24,10 +24,10 @@ class AppBar extends HTMLElement {
         }
       </style>
       <div class="app-bar">
-        <span class="title">${this.getAttribute("title") || "Notes App"}</span>
+        <span class="title">${this.getAttribute('title') || 'Notes App'}</span>
       </div>
     `;
   }
 }
 
-customElements.define("app-bar", AppBar);
+customElements.define('app-bar', AppBar);
